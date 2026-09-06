@@ -113,8 +113,8 @@
       padding: 1.5rem 0 3rem;
     }
 
-    h2:focus,
-    h2:target {
+    section:focus,
+    section:target {
       outline: 3px solid rgba(52, 210, 255, 0.7);
       outline-offset: 0.35rem;
       border-radius: 1rem;
@@ -208,16 +208,16 @@
         outdoor, stage, and mobile LED screen solutions built for clear messaging and unforgettable experiences.
       </p>
       <div class="hero-actions">
-        <a class="button button-primary" href="#products-heading">View Products</a>
-        <a class="button button-secondary" href="#solutions-heading">See Solutions</a>
+        <a class="button button-primary" href="#products">View Products</a>
+        <a class="button button-secondary" href="#solutions">See Solutions</a>
       </div>
     </div>
   </header>
 
   <main>
-    <section id="products">
+    <section id="products" tabindex="-1" aria-labelledby="products-heading">
       <div class="container">
-        <h2 id="products-heading" class="section-title" tabindex="-1">Our LED product lineup</h2>
+        <h2 id="products-heading" class="section-title">Our LED product lineup</h2>
         <p class="section-copy">
           Explore screen options for worship services, nightlife venues, and live productions. Each design is selected
           to improve visibility, atmosphere, and audience engagement.
@@ -257,9 +257,9 @@
       </div>
     </section>
 
-    <section id="solutions">
+    <section id="solutions" tabindex="-1" aria-labelledby="solutions-heading">
       <div class="container">
-        <h2 id="solutions-heading" class="section-title" tabindex="-1">Built for your audience</h2>
+        <h2 id="solutions-heading" class="section-title">Built for your audience</h2>
         <div class="audience-grid">
           <article class="audience-item">
             <h3>Churches</h3>
@@ -277,17 +277,17 @@
       </div>
     </section>
 
-    <section id="planning">
+    <section id="planning" tabindex="-1" aria-labelledby="planning-heading">
       <div class="container">
         <div class="contact">
-          <h2 id="planning-heading" class="section-title" tabindex="-1">Ready to plan your LED display?</h2>
+          <h2 id="planning-heading" class="section-title">Ready to plan your LED display?</h2>
           <p>
             Compare our LED screen categories and choose the right setup for worship spaces, nightlife venues,
             and live productions.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#products-heading">Explore Products</a>
-            <a class="button button-secondary" href="#solutions-heading">Find Your Solution</a>
+            <a class="button button-primary" href="#products">Explore Products</a>
+            <a class="button button-secondary" href="#solutions">Find Your Solution</a>
           </div>
         </div>
       </div>
@@ -301,9 +301,9 @@
     function focusHashTarget() {
       var targetId = window.location.hash.slice(1);
       var focusableTargets = {
-        'products-heading': true,
-        'solutions-heading': true,
-        'planning-heading': true
+        products: true,
+        solutions: true,
+        planning: true
       };
 
       if (!focusableTargets[targetId]) {
