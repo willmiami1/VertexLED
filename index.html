@@ -332,10 +332,7 @@
           }
 
           if (addedTabIndex) {
-            target.addEventListener('blur', function removeTemporaryTabIndex() {
-              target.removeAttribute('tabindex');
-              target.removeEventListener('blur', removeTemporaryTabIndex);
-            });
+            target.removeAttribute('tabindex');
           }
         });
       }
