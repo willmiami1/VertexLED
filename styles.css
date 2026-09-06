@@ -187,11 +187,15 @@ a:focus-visible {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 420px);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
   padding-top: clamp(3rem, 6vw, 6rem);
-  padding-bottom: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
   align-items: start;
+}
+
+.hero-copy {
+  max-width: 760px;
 }
 
 .hero-copy h1,
@@ -253,7 +257,7 @@ a:focus-visible {
 }
 
 .contact-section {
-  display: block;
+  padding-top: 0;
 }
 
 #contact {
