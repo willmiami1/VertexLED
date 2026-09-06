@@ -54,7 +54,7 @@ a:focus-visible {
 
 .topbar a:hover,
 .topbar a:focus-visible {
-  color: #fff;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -243,6 +243,13 @@ a:focus-visible {
 }
 
 #contact {
+  scroll-margin-top: 6rem;
+}
+
+#hero,
+#products,
+#solutions,
+#why-vertexled {
   scroll-margin-top: 6rem;
 }
 
