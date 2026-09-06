@@ -308,6 +308,7 @@ a { color: var(--accent); text-decoration: none; }
 .app-icon { font-size: 2.2rem; margin-bottom: 14px; }
 .app-card h3 { margin-bottom: 10px; font-size: 1.1rem; }
 .app-card p { color: var(--text-dim); font-size: 0.92rem; }
+.rental-cta { text-align: center; margin-top: 40px; }
 
 /* ============ WHY US ============ */
 .why-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: start; }
