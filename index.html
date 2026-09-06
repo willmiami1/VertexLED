@@ -318,7 +318,11 @@
 
       if (target) {
         requestAnimationFrame(function () {
-          target.focus();
+          try {
+            target.focus({ preventScroll: true });
+          } catch (error) {
+            target.focus();
+          }
         });
       }
     }
