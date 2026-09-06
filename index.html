@@ -57,7 +57,37 @@
       <section class="contact-section" id="contact" aria-labelledby="quote-card-heading">
         <div class="quote-card">
           <h2 id="quote-card-heading">Talk to a VertexLED specialist</h2>
-          <p>Share your project scope with a specialist and we'll recommend the right cabinet size, pitch, and control package.</p>
+          <p>Send your project details through the form below or reach out directly and we'll recommend the right cabinet size, pitch, and control package.</p>
+          <form
+            class="quote-form"
+            action="mailto:sales@vertexled.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label>
+              Name
+              <input type="text" name="Name" placeholder="Your name">
+            </label>
+            <label>
+              Email
+              <input type="email" name="Email" placeholder="name@company.com">
+            </label>
+            <label>
+              Project type
+              <select name="Project Type">
+                <option>Church LED wall</option>
+                <option>Event rental</option>
+                <option>Retail signage</option>
+                <option>Virtual production</option>
+                <option>Outdoor display</option>
+              </select>
+            </label>
+            <label>
+              Project details
+              <textarea name="Project Details" rows="4" placeholder="Screen size, location, timeline, and target budget"></textarea>
+            </label>
+            <button class="button" type="submit">Open Email Quote Request</button>
+          </form>
           <div class="quote-actions">
             <a class="button" href="mailto:sales@vertexled.com?subject=LED%20Screen%20Quote%20Request">Email Sales</a>
             <a class="button button-secondary" href="tel:18885901720">Call Sales Now</a>
