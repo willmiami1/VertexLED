@@ -198,6 +198,12 @@ a:focus-visible {
   max-width: 760px;
 }
 
+.hero,
+.section,
+.contact-section {
+  scroll-margin-top: 6rem;
+}
+
 .hero-copy h1,
 .section h2,
 .cta-band h2 {
@@ -258,17 +264,6 @@ a:focus-visible {
 
 .contact-section {
   padding-top: 0;
-}
-
-#contact {
-  scroll-margin-top: 6rem;
-}
-
-#hero,
-#products,
-#solutions,
-#why-vertexled {
-  scroll-margin-top: 6rem;
 }
 
 .quote-card h2 {
