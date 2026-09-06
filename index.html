@@ -113,7 +113,7 @@
       padding: 1.5rem 0 3rem;
     }
 
-    section:focus {
+    h2:focus {
       outline: 3px solid rgba(52, 210, 255, 0.7);
       outline-offset: 0.35rem;
       border-radius: 1rem;
@@ -219,9 +219,9 @@
   </header>
 
   <main>
-    <section id="products" tabindex="-1" aria-labelledby="products-heading">
+    <section id="products" aria-labelledby="products-heading">
       <div class="container">
-        <h2 id="products-heading" class="section-title">Our LED product lineup</h2>
+        <h2 id="products-heading" class="section-title" tabindex="-1">Our LED product lineup</h2>
         <p class="section-copy">
           Explore screen options for worship services, nightlife venues, and live productions. Each design is selected
           to improve visibility, atmosphere, and audience engagement.
@@ -261,9 +261,9 @@
       </div>
     </section>
 
-    <section id="solutions" tabindex="-1" aria-labelledby="solutions-heading">
+    <section id="solutions" aria-labelledby="solutions-heading">
       <div class="container">
-        <h2 id="solutions-heading" class="section-title">Built for your audience</h2>
+        <h2 id="solutions-heading" class="section-title" tabindex="-1">Built for your audience</h2>
         <div class="audience-grid">
           <article class="audience-item">
             <h3>Churches</h3>
@@ -304,15 +304,16 @@
   <script>
     function focusSectionTarget(targetId) {
       var focusableTargets = {
-        products: true,
-        solutions: true
+        products: 'products-heading',
+        solutions: 'solutions-heading'
       };
+      var focusTargetId = focusableTargets[targetId];
 
-      if (!focusableTargets[targetId]) {
+      if (!focusTargetId) {
         return;
       }
 
-      var target = document.getElementById(targetId);
+      var target = document.getElementById(focusTargetId);
 
       if (target) {
         requestAnimationFrame(function () {
