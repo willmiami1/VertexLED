@@ -11,35 +11,37 @@ nav.querySelectorAll('a').forEach((a) =>
 // Current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Animated LED pixel wall in hero
+// Animated LED pixel wall in hero (only when the mock element is present)
 const pixelGrid = document.getElementById('ledPixels');
 const COLS = 24;
 const ROWS = 14;
 const COLORS = ['#2168d1', '#d92b30', '#5ba3f5', '#e57373', '#c9d8ef', '#0a1420', '#0a1420'];
 
-for (let i = 0; i < COLS * ROWS; i++) {
-  pixelGrid.appendChild(document.createElement('i'));
-}
-const pixels = pixelGrid.querySelectorAll('i');
+if (pixelGrid) {
+  for (let i = 0; i < COLS * ROWS; i++) {
+    pixelGrid.appendChild(document.createElement('i'));
+  }
+  const pixels = pixelGrid.querySelectorAll('i');
 
-function animatePixels() {
-  const t = Date.now() / 1200;
-  pixels.forEach((px, i) => {
-    const x = i % COLS;
-    const y = Math.floor(i / COLS);
-    // Traveling wave pattern
-    const wave = Math.sin(x / 3.2 - t) + Math.cos(y / 2.4 + t * 0.8);
-    if (wave > 0.9) {
-      px.style.background = COLORS[(x + y) % 5];
-    } else if (wave > 0.2) {
-      px.style.background = 'rgba(91, 163, 245, 0.18)';
-    } else {
-      px.style.background = '#0a1420';
-    }
-  });
-  requestAnimationFrame(animatePixels);
+  const animatePixels = () => {
+    const t = Date.now() / 1200;
+    pixels.forEach((px, i) => {
+      const x = i % COLS;
+      const y = Math.floor(i / COLS);
+      // Traveling wave pattern
+      const wave = Math.sin(x / 3.2 - t) + Math.cos(y / 2.4 + t * 0.8);
+      if (wave > 0.9) {
+        px.style.background = COLORS[(x + y) % 5];
+      } else if (wave > 0.2) {
+        px.style.background = 'rgba(91, 163, 245, 0.18)';
+      } else {
+        px.style.background = '#0a1420';
+      }
+    });
+    requestAnimationFrame(animatePixels);
+  };
+  animatePixels();
 }
-animatePixels();
 
 // Scroll reveal animation
 const revealTargets = document.querySelectorAll(
