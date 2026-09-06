@@ -400,13 +400,13 @@ a {
 
   .stats,
   .card-grid,
-  .solution-grid,
-  .site-footer {
+  .solution-grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .site-footer {
     display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
