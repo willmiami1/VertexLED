@@ -329,7 +329,12 @@
       document.removeEventListener('DOMContentLoaded', focusInitialHashTarget);
     }
 
+    function handleHashChange() {
+      focusSectionTarget(window.location.hash.slice(1));
+    }
+
     document.addEventListener('DOMContentLoaded', focusInitialHashTarget);
+    window.addEventListener('hashchange', handleHashChange);
   </script>
 </body>
 </html>
