@@ -208,8 +208,8 @@
         outdoor, stage, and mobile LED screen solutions built for clear messaging and unforgettable experiences.
       </p>
       <div class="hero-actions">
-        <a class="button button-primary" href="#products">View Products</a>
-        <a class="button button-secondary" href="#solutions">See Solutions</a>
+        <a class="button button-primary" href="#products" onclick="focusSectionTarget('products')">View Products</a>
+        <a class="button button-secondary" href="#solutions" onclick="focusSectionTarget('solutions')">See Solutions</a>
       </div>
     </div>
   </header>
@@ -286,8 +286,8 @@
             and live productions.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#products">Explore Products</a>
-            <a class="button button-secondary" href="#solutions">Find Your Solution</a>
+            <a class="button button-primary" href="#products" onclick="focusSectionTarget('products')">Explore Products</a>
+            <a class="button button-secondary" href="#solutions" onclick="focusSectionTarget('solutions')">Find Your Solution</a>
           </div>
         </div>
       </div>
@@ -298,8 +298,7 @@
     <div class="container">VertexLED &middot; LED screens for churches, night clubs, and event producers</div>
   </footer>
   <script>
-    function focusHashTarget() {
-      var targetId = window.location.hash.slice(1);
+    function focusSectionTarget(targetId) {
       var focusableTargets = {
         products: true,
         solutions: true,
@@ -319,8 +318,12 @@
       }
     }
 
-    window.addEventListener('DOMContentLoaded', focusHashTarget);
-    window.addEventListener('hashchange', focusHashTarget);
+    function focusInitialHashTarget() {
+      focusSectionTarget(window.location.hash.slice(1));
+      document.removeEventListener('DOMContentLoaded', focusInitialHashTarget);
+    }
+
+    document.addEventListener('DOMContentLoaded', focusInitialHashTarget);
   </script>
 </body>
 </html>
