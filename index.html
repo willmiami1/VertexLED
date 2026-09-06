@@ -208,8 +208,8 @@
         outdoor, stage, and mobile LED screen solutions built for clear messaging and unforgettable experiences.
       </p>
       <div class="hero-actions">
-        <a class="button button-primary" href="#products" data-focus-target="products">View Products</a>
-        <a class="button button-secondary" href="#solutions" data-focus-target="solutions">See Solutions</a>
+        <a class="button button-primary" href="#products">View Products</a>
+        <a class="button button-secondary" href="#solutions">See Solutions</a>
       </div>
     </div>
   </header>
@@ -286,8 +286,8 @@
             and live productions.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#products" data-focus-target="products">Explore Products</a>
-            <a class="button button-secondary" href="#solutions" data-focus-target="solutions">Find Your Solution</a>
+            <a class="button button-primary" href="#products">Explore Products</a>
+            <a class="button button-secondary" href="#solutions">Find Your Solution</a>
           </div>
         </div>
       </div>
@@ -319,26 +319,6 @@
     }
 
     function focusInitialHashTarget() {
-      var links = document.querySelectorAll('[data-focus-target]');
-      var index;
-
-      for (index = 0; index < links.length; index += 1) {
-        var link = links[index];
-
-        link.addEventListener('click', function (event) {
-          var targetId = this.getAttribute('data-focus-target');
-
-          if (window.location.hash.slice(1) === targetId) {
-            event.preventDefault();
-            focusSectionTarget(targetId);
-            return;
-          }
-
-          event.preventDefault();
-          window.location.hash = targetId;
-        });
-      }
-
       focusSectionTarget(window.location.hash.slice(1));
       document.removeEventListener('DOMContentLoaded', focusInitialHashTarget);
     }
