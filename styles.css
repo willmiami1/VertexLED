@@ -42,7 +42,6 @@ a:focus-visible {
 .logo,
 .nav a,
 .footer-links a,
-.topbar a,
 .button {
   text-decoration: none;
 }
@@ -289,6 +288,10 @@ a:focus-visible {
   border: 1px solid var(--border);
 }
 
+.contact-fallback {
+  margin: 1rem 0 0;
+}
+
 .quote-checklist h3 {
   margin-top: 0;
   margin-bottom: 0.85rem;
@@ -407,6 +410,7 @@ a:focus-visible {
   margin-bottom: 1.25rem;
   font-size: 1.2rem;
   line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .cta-band {
