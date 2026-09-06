@@ -118,7 +118,6 @@ a {
   background: var(--primary-dark);
 }
 
-.button:focus-visible,
 .button:focus-visible {
   outline: 3px solid #0b3f8f;
   outline-offset: 3px;
