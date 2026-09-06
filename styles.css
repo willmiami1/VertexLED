@@ -367,6 +367,10 @@ a:focus-visible {
   color: #fff;
 }
 
+.testimonial-card h3 {
+  color: #fff;
+}
+
 .quote {
   margin-top: 0;
   margin-bottom: 1.25rem;
