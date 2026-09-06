@@ -303,7 +303,7 @@
         return;
       }
 
-      var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+      var target = document.getElementById(window.location.hash.slice(1));
 
       if (target) {
         requestAnimationFrame(function () {
