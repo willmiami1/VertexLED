@@ -124,6 +124,7 @@ a {
 }
 
 .button:focus-visible {
+  background: var(--primary-dark);
   outline: 3px solid #0b3f8f;
   outline-offset: 3px;
 }
@@ -214,6 +215,7 @@ a {
 
 .quote-card {
   padding: 1.75rem;
+  scroll-margin-top: 6rem;
 }
 
 .quote-card h2 {
