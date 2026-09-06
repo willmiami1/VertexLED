@@ -327,16 +327,20 @@
       }
     }
 
-    function focusInitialHashTarget() {
+    function initializeSectionFocus() {
       focusSectionTarget(window.location.hash.slice(1));
-      document.removeEventListener('DOMContentLoaded', focusInitialHashTarget);
     }
 
     function handleHashChange() {
       focusSectionTarget(window.location.hash.slice(1));
     }
 
-    document.addEventListener('DOMContentLoaded', focusInitialHashTarget);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeSectionFocus);
+    } else {
+      initializeSectionFocus();
+    }
+
     window.addEventListener('hashchange', handleHashChange);
   </script>
 </body>
