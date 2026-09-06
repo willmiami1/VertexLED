@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VertexLED | LED Products for Churches, Night Clubs & Events</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #07111f;
+      --panel: #0f1c2c;
+      --card: #13243a;
+      --text: #eaf2ff;
+      --muted: #b9c7dc;
+      --accent: #34d2ff;
+      --accent-2: #7b61ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #07111f 0%, #0b1630 45%, #101d38 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 0.9rem;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(52, 210, 255, 0.14);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 12ch;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 1.05;
+      margin: 1rem 0;
+    }
+
+    .hero p {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.3rem;
+      border-radius: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(234, 242, 255, 0.18);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    section {
+      padding: 1.5rem 0 3rem;
+    }
+
+    h2:focus {
+      outline: 3px solid rgba(52, 210, 255, 0.7);
+      outline-offset: 0.35rem;
+      border-radius: 1rem;
+    }
+
+    section:target {
+      box-shadow: 0 0 0 0.35rem rgba(52, 210, 255, 0.18);
+      border-radius: 1rem;
+    }
+
+    .section-title {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+    }
+
+    .section-copy {
+      max-width: 44rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: rgba(19, 36, 58, 0.92);
+      border: 1px solid rgba(234, 242, 255, 0.08);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+    }
+
+    .card span {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .card p,
+    .audience-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .audience-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .audience-item {
+      padding: 1.4rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(234, 242, 255, 0.08);
+    }
+
+    .contact {
+      margin-bottom: 4rem;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(52, 210, 255, 0.18), rgba(123, 97, 255, 0.18));
+      border: 1px solid rgba(234, 242, 255, 0.12);
+    }
+
+    .contact p {
+      color: var(--text);
+      max-width: 36rem;
+    }
+
+    footer {
+      padding: 0 0 2rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <span class="badge">LED Screens Sales & Rental</span>
+      <h1>LED products designed to light up every stage.</h1>
+      <p>
+        VertexLED helps churches, night clubs, and event producers showcase powerful visuals with indoor,
+        outdoor, stage, and mobile LED screen solutions built for clear messaging and unforgettable experiences.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#products">View Products</a>
+        <a class="button button-secondary" href="#solutions">See Solutions</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="products" aria-labelledby="products-heading">
+      <div class="container">
+        <h2 id="products-heading" class="section-title">Our LED product lineup</h2>
+        <p class="section-copy">
+          Explore screen options for worship services, nightlife venues, and live productions. Each design is selected
+          to improve visibility, atmosphere, and audience engagement.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <span>Indoor LED Wall</span>
+            <h3>Sanctuary Display Series</h3>
+            <p>High-brightness indoor panels for sermon backdrops, lyrics, scripture, and church announcements.</p>
+          </article>
+          <article class="card">
+            <span>Stage Backdrop</span>
+            <h3>Event Pro Series</h3>
+            <p>Modular LED walls for concerts, conferences, weddings, and brand activations with flexible staging layouts.</p>
+          </article>
+          <article class="card">
+            <span>Nightlife Display</span>
+            <h3>Club Motion Series</h3>
+            <p>Dynamic LED panels that elevate DJ booths, dance floors, and immersive venue lighting experiences.</p>
+          </article>
+          <article class="card">
+            <span>Outdoor Screen</span>
+            <h3>Street View Series</h3>
+            <p>Weather-ready displays for church events, open-air concerts, promotions, and public viewing areas.</p>
+          </article>
+          <article class="card">
+            <span>Rental Package</span>
+            <h3>Quick Setup Kits</h3>
+            <p>Complete rental solutions with structure options for temporary events that need fast installation and teardown.</p>
+          </article>
+          <article class="card">
+            <span>Mobile Solution</span>
+            <h3>Touring Screen Packages</h3>
+            <p>Portable systems for road shows and traveling ministries that need strong visuals in multiple locations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" aria-labelledby="solutions-heading">
+      <div class="container">
+        <h2 id="solutions-heading" class="section-title">Built for your audience</h2>
+        <div class="audience-grid">
+          <article class="audience-item">
+            <h3>Churches</h3>
+            <p>Create clear worship visuals for lyrics, livestreams, announcements, and sermon support.</p>
+          </article>
+          <article class="audience-item">
+            <h3>Night Clubs</h3>
+            <p>Boost venue energy with vivid LED features that support performances, promotions, and visual branding.</p>
+          </article>
+          <article class="audience-item">
+            <h3>Event Producers</h3>
+            <p>Deliver polished productions with scalable LED setups for stages, conferences, festivals, and private events.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planning" aria-labelledby="planning-heading">
+      <div class="container">
+        <div class="contact">
+          <h2 id="planning-heading" class="section-title">Ready to plan your LED display?</h2>
+          <p>
+            Compare our LED screen categories and choose the right setup for worship spaces, nightlife venues,
+            and live productions.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#products">Explore Products</a>
+            <a class="button button-secondary" href="#solutions">Find Your Solution</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">VertexLED &middot; LED screens for churches, night clubs, and event producers</div>
+  </footer>
+  <script>
+    var focusableTargets = {
+      products: 'products-heading',
+      solutions: 'solutions-heading',
+      planning: 'planning-heading'
+    };
+
+    function focusSectionTarget(targetId) {
+      var focusTargetId = focusableTargets[targetId];
+
+      if (!focusTargetId) {
+        return;
+      }
+
+      var target = document.getElementById(focusTargetId);
+
+      if (target) {
+        var addedTabIndex = false;
+
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+          addedTabIndex = true;
+        }
+
+        requestAnimationFrame(function () {
+          try {
+            target.focus({ preventScroll: true });
+          } catch (error) {
+            target.focus();
+          }
+
+          if (addedTabIndex) {
+            target.removeAttribute('tabindex');
+          }
+        });
+      }
+    }
+
+    function handleFragmentLinkClick(event) {
+      var href = this.getAttribute('href');
+      var targetId;
+
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        !href ||
+        href.charAt(0) !== '#'
+      ) {
+        return;
+      }
+
+      targetId = href.slice(1);
+
+      if (!focusableTargets[targetId]) {
+        return;
+      }
+
+      requestAnimationFrame(function () {
+        focusSectionTarget(targetId);
+      });
+    }
+
+    function initializeSectionFocus() {
+      var fragmentLinks = document.querySelectorAll('a[href^="#"]');
+      var index;
+
+      for (index = 0; index < fragmentLinks.length; index += 1) {
+        fragmentLinks[index].addEventListener('click', handleFragmentLinkClick);
+      }
+
+      focusSectionTarget(window.location.hash.slice(1));
+    }
+
+    function handleHashChange() {
+      focusSectionTarget(window.location.hash.slice(1));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeSectionFocus);
+    } else {
+      initializeSectionFocus();
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+  </script>
+</body>
+</html>
