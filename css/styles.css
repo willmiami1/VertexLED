@@ -111,6 +111,27 @@ a { color: var(--accent); text-decoration: none; }
 
 /* ============ HERO ============ */
 .hero { position: relative; overflow: hidden; padding: 90px 0 70px; }
+
+/* Video background (activates automatically when videos/hero.mp4 exists) */
+.hero-video { position: absolute; inset: 0; z-index: 0; }
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 14, 23, 0.92) 0%, rgba(10, 14, 23, 0.68) 55%, rgba(10, 14, 23, 0.45) 100%),
+    linear-gradient(0deg, rgba(10, 14, 23, 0.95) 0%, transparent 30%);
+}
+.hero.has-video { padding: 130px 0 110px; }
+.hero.has-video .hero-glow { display: none; }
+.hero.has-video .hero-visual { display: none; }
+.hero.has-video .hero-inner { grid-template-columns: 1fr; }
+.hero.has-video .hero-content { max-width: 720px; }
+
 .hero-glow {
   position: absolute;
   border-radius: 50%;
