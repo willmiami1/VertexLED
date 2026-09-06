@@ -119,10 +119,15 @@ a {
 }
 
 .button:focus-visible,
+.button:focus-visible {
+  outline: 3px solid #0b3f8f;
+  outline-offset: 3px;
+}
+
 .button-secondary:focus-visible,
 .button-outline:focus-visible,
 .light-outline:focus-visible {
-  outline: 3px solid rgba(2, 213, 194, 0.45);
+  outline: 3px solid #0b3f8f;
   outline-offset: 3px;
 }
 
@@ -342,11 +347,6 @@ a {
   margin-bottom: 1.25rem;
   font-size: 1.2rem;
   line-height: 1.7;
-}
-
-.attribution {
-  margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.78);
 }
 
 .cta-band {
