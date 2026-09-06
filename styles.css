@@ -35,7 +35,7 @@ a {
 }
 
 a:focus-visible {
-  outline: 3px solid #0b3f8f;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -151,14 +151,14 @@ a:focus-visible {
 
 .button:not(.button-secondary):not(.button-outline):focus-visible {
   background: var(--primary-dark);
-  outline: 3px solid #0b3f8f;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
 .button-secondary:focus-visible,
 .button-outline:focus-visible,
 .light-outline:focus-visible {
-  outline: 3px solid #0b3f8f;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
