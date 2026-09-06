@@ -26,12 +26,21 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 a:focus-visible {
   outline: 3px solid #0b3f8f;
   outline-offset: 3px;
+}
+
+.logo,
+.nav a,
+.footer-links a,
+.topbar a,
+.button {
+  text-decoration: none;
 }
 
 .nav a:hover,
