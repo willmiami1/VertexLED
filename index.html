@@ -302,12 +302,13 @@
     <div class="container">VertexLED &middot; LED screens for churches, night clubs, and event producers</div>
   </footer>
   <script>
+    var focusableTargets = {
+      products: 'products-heading',
+      solutions: 'solutions-heading',
+      planning: 'planning-heading'
+    };
+
     function focusSectionTarget(targetId) {
-      var focusableTargets = {
-        products: 'products-heading',
-        solutions: 'solutions-heading',
-        planning: 'planning-heading'
-      };
       var focusTargetId = focusableTargets[targetId];
 
       if (!focusTargetId) {
@@ -338,7 +339,42 @@
       }
     }
 
+    function handleFragmentLinkClick(event) {
+      var href = this.getAttribute('href');
+      var targetId;
+
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        !href ||
+        href.charAt(0) !== '#'
+      ) {
+        return;
+      }
+
+      targetId = href.slice(1);
+
+      if (!focusableTargets[targetId]) {
+        return;
+      }
+
+      requestAnimationFrame(function () {
+        focusSectionTarget(targetId);
+      });
+    }
+
     function initializeSectionFocus() {
+      var fragmentLinks = document.querySelectorAll('a[href^="#"]');
+      var index;
+
+      for (index = 0; index < fragmentLinks.length; index += 1) {
+        fragmentLinks[index].addEventListener('click', handleFragmentLinkClick);
+      }
+
       focusSectionTarget(window.location.hash.slice(1));
     }
 
