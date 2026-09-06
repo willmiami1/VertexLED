@@ -113,10 +113,14 @@
       padding: 1.5rem 0 3rem;
     }
 
-    section:focus,
-    section:target {
+    section:focus {
       outline: 3px solid rgba(52, 210, 255, 0.7);
       outline-offset: 0.35rem;
+      border-radius: 1rem;
+    }
+
+    section:target {
+      box-shadow: 0 0 0 0.35rem rgba(52, 210, 255, 0.18);
       border-radius: 1rem;
     }
 
