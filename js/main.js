@@ -11,26 +11,6 @@ nav.querySelectorAll('a').forEach((a) =>
 // Current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Hero video background — activates only if videos/hero.mp4 exists
-const heroVideo = document.getElementById('heroVideo');
-const heroVideoWrap = document.getElementById('heroVideoWrap');
-const heroSection = document.getElementById('hero');
-
-heroVideo.addEventListener('loadeddata', () => {
-  heroVideoWrap.hidden = false;
-  heroSection.classList.add('has-video');
-  heroVideo.play().catch(() => {});
-});
-heroVideo.addEventListener('error', () => {
-  heroVideoWrap.hidden = true;
-  heroSection.classList.remove('has-video');
-});
-heroVideo.querySelector('source').addEventListener('error', () => {
-  heroVideoWrap.hidden = true;
-  heroSection.classList.remove('has-video');
-});
-heroVideo.load();
-
 // Animated LED pixel wall in hero
 const pixelGrid = document.getElementById('ledPixels');
 const COLS = 24;
