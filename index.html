@@ -284,7 +284,7 @@
     <section id="planning" aria-labelledby="planning-heading">
       <div class="container">
         <div class="contact">
-          <h2 id="planning-heading" class="section-title">Ready to plan your LED display?</h2>
+          <h2 id="planning-heading" class="section-title" tabindex="-1">Ready to plan your LED display?</h2>
           <p>
             Compare our LED screen categories and choose the right setup for worship spaces, nightlife venues,
             and live productions.
@@ -305,7 +305,8 @@
     function focusSectionTarget(targetId) {
       var focusableTargets = {
         products: 'products-heading',
-        solutions: 'solutions-heading'
+        solutions: 'solutions-heading',
+        planning: 'planning-heading'
       };
       var focusTargetId = focusableTargets[targetId];
 
