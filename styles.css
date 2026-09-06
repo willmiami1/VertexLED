@@ -29,6 +29,11 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline: 3px solid #0b3f8f;
+  outline-offset: 3px;
+}
+
 .nav a:hover,
 .nav a:focus-visible,
 .footer-links a:hover,
