@@ -100,7 +100,6 @@ a:focus-visible {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #ffffff;
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid rgba(216, 226, 242, 0.8);
 }
@@ -144,12 +143,12 @@ a:focus-visible {
   transition: 0.2s ease;
 }
 
-.button:not(.button-secondary):not(.button-outline):hover,
-.button:not(.button-secondary):not(.button-outline):active {
+.button:not(.button-secondary):not(.button-outline):not(.button-inverse):hover,
+.button:not(.button-secondary):not(.button-outline):not(.button-inverse):active {
   background: var(--primary-dark);
 }
 
-.button:not(.button-secondary):not(.button-outline):focus-visible {
+.button:not(.button-secondary):not(.button-outline):not(.button-inverse):focus-visible {
   background: var(--primary-dark);
   outline: 3px solid var(--accent);
   outline-offset: 3px;
@@ -167,6 +166,17 @@ a:focus-visible {
   background: transparent;
   color: var(--primary);
   border-color: rgba(31, 122, 255, 0.22);
+}
+
+.button-inverse {
+  background: #fff;
+  color: var(--bg);
+}
+
+.button-inverse:hover,
+.button-inverse:active,
+.button-inverse:focus-visible {
+  background: #eaf2ff;
 }
 
 .button-secondary:hover,
