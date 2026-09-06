@@ -319,11 +319,17 @@
     }
 
     function focusInitialHashTarget() {
-      document.querySelectorAll('[data-focus-target]').forEach(function (link) {
+      var links = document.querySelectorAll('[data-focus-target]');
+      var index;
+
+      for (index = 0; index < links.length; index += 1) {
+        var link = links[index];
+
         link.addEventListener('click', function (event) {
           var targetId = this.getAttribute('data-focus-target');
 
           if (window.location.hash.slice(1) === targetId) {
+            event.preventDefault();
             focusSectionTarget(targetId);
             return;
           }
@@ -331,7 +337,7 @@
           event.preventDefault();
           window.location.hash = targetId;
         });
-      });
+      }
 
       focusSectionTarget(window.location.hash.slice(1));
       document.removeEventListener('DOMContentLoaded', focusInitialHashTarget);
