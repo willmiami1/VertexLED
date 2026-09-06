@@ -32,10 +32,15 @@ a {
 .nav a:hover,
 .nav a:focus-visible,
 .footer-links a:hover,
-.footer-links a:focus-visible,
+.footer-links a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .topbar a:hover,
 .topbar a:focus-visible {
-  color: var(--primary);
+  color: #fff;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
