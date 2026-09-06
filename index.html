@@ -318,6 +318,8 @@
         });
       }
     }
+
+    window.addEventListener('load', focusHashTarget, { once: true });
     window.addEventListener('hashchange', focusHashTarget);
   </script>
 </body>
