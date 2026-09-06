@@ -195,33 +195,33 @@ a {
   font-size: 1.65rem;
 }
 
-.quote-form {
-  display: grid;
-  gap: 1rem;
+.quote-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
   margin-top: 1.5rem;
 }
 
-.quote-form label {
-  display: grid;
-  gap: 0.45rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.quote-form input,
-.quote-form select,
-.quote-form textarea {
-  width: 100%;
-  padding: 0.95rem 1rem;
-  border-radius: 0.9rem;
+.quote-checklist {
+  margin-top: 1.6rem;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  background: #f7faff;
   border: 1px solid var(--border);
-  font: inherit;
-  color: var(--text);
-  background: #fbfdff;
 }
 
-.quote-form textarea {
-  resize: vertical;
+.quote-checklist h3 {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+}
+
+.quote-checklist ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.7rem;
 }
 
 .stats {
@@ -385,13 +385,13 @@ a {
   }
 
   .hero,
-  .benefit-layout,
-  .cta-band {
+  .benefit-layout {
     grid-template-columns: 1fr;
   }
 
   .cta-band {
     display: grid;
+    grid-template-columns: 1fr;
   }
 
   .stats,
