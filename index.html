@@ -221,7 +221,7 @@
   <main>
     <section id="products" aria-labelledby="products-heading">
       <div class="container">
-        <h2 id="products-heading" class="section-title" tabindex="-1">Our LED product lineup</h2>
+        <h2 id="products-heading" class="section-title">Our LED product lineup</h2>
         <p class="section-copy">
           Explore screen options for worship services, nightlife venues, and live productions. Each design is selected
           to improve visibility, atmosphere, and audience engagement.
@@ -263,7 +263,7 @@
 
     <section id="solutions" aria-labelledby="solutions-heading">
       <div class="container">
-        <h2 id="solutions-heading" class="section-title" tabindex="-1">Built for your audience</h2>
+        <h2 id="solutions-heading" class="section-title">Built for your audience</h2>
         <div class="audience-grid">
           <article class="audience-item">
             <h3>Churches</h3>
@@ -284,7 +284,7 @@
     <section id="planning" aria-labelledby="planning-heading">
       <div class="container">
         <div class="contact">
-          <h2 id="planning-heading" class="section-title" tabindex="-1">Ready to plan your LED display?</h2>
+          <h2 id="planning-heading" class="section-title">Ready to plan your LED display?</h2>
           <p>
             Compare our LED screen categories and choose the right setup for worship spaces, nightlife venues,
             and live productions.
@@ -317,11 +317,25 @@
       var target = document.getElementById(focusTargetId);
 
       if (target) {
+        var addedTabIndex = false;
+
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+          addedTabIndex = true;
+        }
+
         requestAnimationFrame(function () {
           try {
             target.focus({ preventScroll: true });
           } catch (error) {
             target.focus();
+          }
+
+          if (addedTabIndex) {
+            target.addEventListener('blur', function removeTemporaryTabIndex() {
+              target.removeAttribute('tabindex');
+              target.removeEventListener('blur', removeTemporaryTabIndex);
+            });
           }
         });
       }
