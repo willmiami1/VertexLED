@@ -219,6 +219,7 @@ a { color: var(--accent); text-decoration: none; }
   gap: 26px;
 }
 .product-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.product-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 780px; margin: 0 auto; }
 .product-card, .package-card {
   position: relative;
   background: var(--surface);
