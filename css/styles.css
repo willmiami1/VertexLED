@@ -82,7 +82,34 @@ a { color: var(--accent); text-decoration: none; }
   padding: 7px 0;
 }
 .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.topbar-right { display: flex; align-items: center; gap: 16px; }
 .topbar-phone { color: #fff; font-weight: 800; white-space: nowrap; }
+
+/* ============ SOCIAL BAR ============ */
+.social-bar { display: flex; align-items: center; gap: 10px; }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+.social-link svg { width: 14px; height: 14px; }
+.social-link:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-1px); }
+.social-bar-footer { margin-top: 18px; }
+.social-bar-footer .social-link {
+  width: 38px;
+  height: 38px;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.social-bar-footer .social-link svg { width: 18px; height: 18px; }
+.social-bar-footer .social-link:hover { color: #fff; background: var(--surface-2); border-color: var(--accent); }
 
 /* ============ HEADER ============ */
 .header {
@@ -507,6 +534,7 @@ a { color: var(--accent); text-decoration: none; }
   .nav .btn { margin-top: 12px; }
   .nav-toggle { display: flex; }
   .topbar-inner { justify-content: center; text-align: center; }
+  .topbar-right { justify-content: center; flex-wrap: wrap; }
   .hero { padding: 56px 0 48px; }
   .section { padding: 60px 0; }
   .hero-stats { gap: 24px; }
