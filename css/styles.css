@@ -190,6 +190,15 @@ a { color: var(--accent); text-decoration: none; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
+.hero-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
 /* ============ TRUST STRIP ============ */
 .trust-strip { background: var(--bg-alt); border-block: 1px solid var(--border); padding: 18px 0; }
