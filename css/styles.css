@@ -310,6 +310,13 @@ a { color: var(--accent); text-decoration: none; }
 
 /* ============ PACKAGES ============ */
 .package-card { padding: 30px 26px; }
+.package-img {
+  display: block;
+  width: calc(100% + 52px);
+  margin: -30px -26px 20px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.price-tbd { font-size: 1.25rem !important; }
 .package-size { color: var(--accent); font-weight: 700; font-size: 0.9rem; margin: 8px 0 4px; }
 .package-price { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 20px; }
 .package-price strong { font-size: 1.9rem; color: var(--text); font-weight: 900; }
