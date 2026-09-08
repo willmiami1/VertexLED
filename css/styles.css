@@ -306,6 +306,30 @@ a { color: var(--accent); text-decoration: none; }
 .price { color: var(--text-dim); font-size: 0.85rem; }
 .price strong { color: var(--text); font-size: 1.15rem; font-weight: 800; }
 
+/* ============ HOME THEATER ============ */
+.theater-section {
+  background: radial-gradient(ellipse at 50% 0%, rgba(33, 104, 209, 0.14), transparent 60%), var(--bg-alt);
+  border-block: 1px solid var(--border);
+}
+.theater-card {
+  display: grid;
+  grid-template-columns: minmax(0, 440px) 1fr;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.theater-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.theater-body { padding: 34px 36px; }
+.theater-pitches { display: inline-block; color: var(--accent); font-weight: 700; font-size: 0.95rem; margin-bottom: 14px; }
+.theater-pitches strong { color: var(--text); }
+@media (max-width: 860px) {
+  .theater-card { grid-template-columns: 1fr; }
+  .theater-img img { height: auto; }
+}
+
 /* ============ PITCH TABLE ============ */
 .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
 .pitch-table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 640px; }
