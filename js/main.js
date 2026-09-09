@@ -170,6 +170,7 @@ if (galleryGrid) {
     .then((data) => {
       const posts = data.posts || [];
       if (!posts.length) return;
+      if (posts.length >= 8) galleryGrid.classList.add('gallery-grid-4');
       const esc = (s) => (s || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
       posts.forEach((post) => {

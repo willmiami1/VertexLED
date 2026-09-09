@@ -424,6 +424,7 @@ a { color: var(--accent); text-decoration: none; }
 
 /* ============ IMAGE GALLERY ============ */
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gallery-grid-4 { grid-template-columns: repeat(4, 1fr); }
 .gallery-item {
   position: relative;
   border-radius: var(--radius);
