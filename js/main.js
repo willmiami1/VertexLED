@@ -181,7 +181,8 @@ if (galleryGrid) {
         media.forEach((m) => {
           items.push({
             video: m.mediaType === 'VIDEO',
-            src: mediaSrc(m),
+            // videos must use the raw mediaUrl — "sizes" are image thumbnails
+            src: m.mediaType === 'VIDEO' ? m.mediaUrl : mediaSrc(m),
             caption: esc((post.prunedCaption || post.caption || '').slice(0, 140)),
             permalink: post.permalink,
           });
