@@ -42,16 +42,16 @@ document.querySelectorAll('[data-product]').forEach((btn) => {
 });
 
 // ============ LED WALL CALCULATOR ============
-// All specs based on Vertex Pro 500 x 500 mm panels
+// Vertex Pro panels: pw/ph = panel size (mm), pxW/pxH = pixels per panel
 const CALC_MODELS = {
-  p19i: { name: 'P1.9 Indoor', px: 256, price: 730, view: 6, pitch: 1.9 },
-  p25i: { name: 'P2.5 Indoor', px: 200, price: 580, view: 8, pitch: 2.5 },
-  p29i: { name: 'P2.9 Indoor', px: 168, price: 430, view: 10, pitch: 2.9 },
-  p39i: { name: 'P3.9 Indoor / Rental', px: 128, price: 380, view: 13, pitch: 3.9 },
-  p29o: { name: 'P2.9 Outdoor', px: 168, price: 580, view: 10, pitch: 2.9 },
-  p39o: { name: 'P3.9 Outdoor', px: 128, price: 480, view: 13, pitch: 3.9 },
+  p19i: { name: 'P1.9 Indoor', pw: 500, ph: 500, pxW: 256, pxH: 256, price: 730, view: 6 },
+  p25i: { name: 'P2.5 Indoor', pw: 500, ph: 500, pxW: 200, pxH: 200, price: 580, view: 8 },
+  p29i: { name: 'P2.9 Indoor', pw: 500, ph: 500, pxW: 168, pxH: 168, price: 430, view: 10 },
+  p39i: { name: 'P3.9 Indoor / Rental', pw: 500, ph: 500, pxW: 128, pxH: 128, price: 380, view: 13 },
+  p29o: { name: 'P2.9 Outdoor', pw: 500, ph: 500, pxW: 168, pxH: 168, price: 580, view: 10 },
+  p39o: { name: 'P3.9 Outdoor', pw: 500, ph: 500, pxW: 128, pxH: 128, price: 480, view: 13 },
+  ht19: { name: 'Home Theater P1.9', pw: 1000, ph: 250, pxW: 512, pxH: 128, price: 380, view: 6 },
 };
-const PANEL_MM = 500; // panel is 500 x 500 mm
 
 const calcModel = document.getElementById('calcModel');
 if (calcModel) {
@@ -64,13 +64,15 @@ if (calcModel) {
     const m = CALC_MODELS[calcModel.value];
     const w = Math.min(Math.max(parseInt(calcW.value, 10) || 1, 1), 40);
     const h = Math.min(Math.max(parseInt(calcH.value, 10) || 1, 1), 20);
-    const wFt = (w * PANEL_MM) / 304.8;
-    const hFt = (h * PANEL_MM) / 304.8;
-    const wM = (w * PANEL_MM) / 1000;
-    const hM = (h * PANEL_MM) / 1000;
+    const wFt = (w * m.pw) / 304.8;
+    const hFt = (h * m.ph) / 304.8;
+    const wM = (w * m.pw) / 1000;
+    const hM = (h * m.ph) / 1000;
     const count = w * h;
-    const g = gcd(w, h);
+    const g = gcd(w * m.pw, h * m.ph);
 
+    document.getElementById('calcPanelNote').textContent =
+      `Each ${m.name} panel is ${m.pw} × ${m.ph} mm (${(m.pw / 304.8).toFixed(2)} × ${(m.ph / 304.8).toFixed(2)} ft).`;
     document.getElementById('calcSize').textContent =
       `${wFt.toFixed(1)} ft × ${hFt.toFixed(1)} ft`;
     document.getElementById('calcSizeM').textContent =
@@ -78,11 +80,11 @@ if (calcModel) {
     document.getElementById('calcCount').textContent =
       `${count} panels (${w} × ${h})`;
     document.getElementById('calcRatio').textContent =
-      `Aspect ratio ${w / g}:${h / g}`;
+      `Aspect ratio ${(w * m.pw) / g}:${(h * m.ph) / g}`;
     document.getElementById('calcRes').textContent =
-      `${fmt(w * m.px)} × ${fmt(h * m.px)} px`;
+      `${fmt(w * m.pxW)} × ${fmt(h * m.pxH)} px`;
     document.getElementById('calcPixels').textContent =
-      `${fmt(w * m.px * h * m.px)} total pixels`;
+      `${fmt(w * m.pxW * h * m.pxH)} total pixels`;
     document.getElementById('calcView').textContent = `${m.view} ft +`;
     document.getElementById('calcPrice').textContent =
       `From $${fmt(count * m.price)}`;
@@ -92,6 +94,16 @@ if (calcModel) {
         'data-product',
         `Custom LED Wall — ${m.name}, ${w} × ${h} panels (${wFt.toFixed(1)}' × ${hFt.toFixed(1)}'), est. $${fmt(count * m.price)}`
       );
+
+    // Screen build preview — panel grid at true aspect ratio
+    const preview = document.getElementById('calcPreview');
+    const ratio = (w * m.pw) / (h * m.ph);
+    preview.style.gridTemplateColumns = `repeat(${w}, 1fr)`;
+    preview.style.aspectRatio = ratio;
+    preview.style.maxWidth = `min(100%, ${Math.round(300 * ratio)}px)`;
+    preview.innerHTML = '<span class="calc-cell"></span>'.repeat(count);
+    document.getElementById('calcPreviewLabel').textContent =
+      `${m.name} — ${w} × ${h} panels, ${wFt.toFixed(1)}' wide × ${hFt.toFixed(1)}' tall`;
   };
 
   [calcModel, calcW, calcH].forEach((el) => {
