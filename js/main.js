@@ -206,21 +206,45 @@ if (galleryGrid) {
     });
 }
 
-// Quote form submission (opens user's email client with details pre-filled)
+// Quote form submission (sends via FormSubmit, shows on-page confirmation)
 document.getElementById('quoteForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const f = e.target;
-  const body = [
-    `Name: ${f.name.value}`,
-    `Company: ${f.company.value || '-'}`,
-    `Email: ${f.email.value}`,
-    `Phone: ${f.phone.value || '-'}`,
-    `Interested in: ${f.interest.value}`,
-    `Approx. size: ${f.size.value || '-'}`,
-    '',
-    'Project details:',
-    f.message.value || '-',
-  ].join('\n');
-  const subject = `LED Screen Quote Request — ${f.name.value}`;
-  window.location.href = `mailto:sales@vertexled.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const btn = f.querySelector('button[type="submit"]');
+  const note = f.querySelector('.form-note');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  const data = new FormData(f);
+  fetch('https://formsubmit.co/ajax/sales@vertexled.com', {
+    method: 'POST',
+    headers: { Accept: 'application/json' },
+    body: data,
+  })
+    .then((r) => {
+      if (!r.ok) throw new Error('send failed');
+      return r.json();
+    })
+    .then(() => {
+      f.reset();
+      btn.textContent = '✓ Request Sent!';
+      if (note) note.textContent = 'Thanks! We received your request and will reply the same business day.';
+    })
+    .catch(() => {
+      // Fallback: open the visitor's email client with details pre-filled
+      const body = [
+        `Name: ${f.name.value}`,
+        `Company: ${f.company.value || '-'}`,
+        `Email: ${f.email.value}`,
+        `Phone: ${f.phone.value || '-'}`,
+        `Interested in: ${f.interest.value}`,
+        `Approx. size: ${f.size.value || '-'}`,
+        '',
+        'Project details:',
+        f.message.value || '-',
+      ].join('\n');
+      const subject = `LED Screen Quote Request — ${f.name.value}`;
+      window.location.href = `mailto:sales@vertexled.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      btn.disabled = false;
+      btn.textContent = 'Request My Free Quote →';
+    });
 });

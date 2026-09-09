@@ -599,7 +599,11 @@
           <li>📍 510 NE 28th Ct, Pompano Beach, FL 33064</li>
         </ul>
       </div>
-      <form class="quote-form" id="quoteForm" action="mailto:sales@vertexled.com" method="post" enctype="text/plain">
+      <form class="quote-form" id="quoteForm" action="https://formsubmit.co/sales@vertexled.com" method="POST">
+        <input type="hidden" name="_subject" value="New quote request — vertexled.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-field">
             <label for="name">Name *</label>
@@ -705,6 +709,6 @@
     <div class="lightbox-caption" id="lbCaption"></div>
   </div>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
