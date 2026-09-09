@@ -47,10 +47,12 @@ const CALC_MODELS = {
   p19i: { name: 'P1.9 Indoor', pw: 500, ph: 500, pxW: 256, pxH: 256, price: 730, view: 6 },
   p25i: { name: 'P2.5 Indoor', pw: 500, ph: 500, pxW: 200, pxH: 200, price: 580, view: 8 },
   p29i: { name: 'P2.9 Indoor', pw: 500, ph: 500, pxW: 168, pxH: 168, price: 430, view: 10 },
-  p39i: { name: 'P3.9 Indoor / Rental', pw: 500, ph: 500, pxW: 128, pxH: 128, price: 380, view: 13 },
+  p39i: { name: 'P3.9 Indoor', pw: 500, ph: 500, pxW: 128, pxH: 128, price: 380, view: 13 },
   p29o: { name: 'P2.9 Outdoor', pw: 500, ph: 500, pxW: 168, pxH: 168, price: 580, view: 10 },
   p39o: { name: 'P3.9 Outdoor', pw: 500, ph: 500, pxW: 128, pxH: 128, price: 480, view: 13 },
-  ht19: { name: 'Home Theater P1.9', pw: 1000, ph: 250, pxW: 512, pxH: 128, price: 380, view: 6 },
+  ht12: { name: 'Home Theater P1.2', pw: 1000, ph: 250, pxW: 800, pxH: 200, price: 690, view: 4 },
+  ht19: { name: 'Home Theater P1.9', pw: 1000, ph: 250, pxW: 512, pxH: 128, price: 490, view: 6 },
+  ht25: { name: 'Home Theater P2.5', pw: 1000, ph: 250, pxW: 400, pxH: 100, price: 390, view: 8 },
 };
 
 const calcModel = document.getElementById('calcModel');
