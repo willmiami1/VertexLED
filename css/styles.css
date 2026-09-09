@@ -330,6 +330,51 @@ a { color: var(--accent); text-decoration: none; }
   .theater-img img { height: auto; }
 }
 
+/* ============ LED WALL CALCULATOR ============ */
+.calc-card {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) 1fr;
+  gap: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 34px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.calc-form .form-field { margin-bottom: 18px; }
+.calc-form .form-row .form-field { margin-bottom: 0; }
+.calc-form .form-row { margin-bottom: 18px; }
+.calc-note { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 20px; }
+.calc-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-content: start;
+}
+.calc-stat {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.calc-stat-wide { grid-column: 1 / -1; }
+.calc-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.calc-stat strong { display: block; font-size: 1.25rem; font-weight: 900; }
+.calc-stat .calc-price { font-size: 1.7rem; color: var(--accent); }
+.calc-sub { display: block; color: var(--text-dim); font-size: 0.78rem; margin-top: 4px; }
+@media (max-width: 860px) {
+  .calc-card { grid-template-columns: 1fr; padding: 26px 20px; }
+}
+
 /* ============ PITCH TABLE ============ */
 .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
 .pitch-table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 640px; }

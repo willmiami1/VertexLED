@@ -285,6 +285,51 @@
     </div>
   </section>
 
+  <!-- ============ LED WALL CALCULATOR ============ -->
+  <section class="section theater-section" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">LED Wall Calculator</span>
+        <h2>Size Your LED Wall in Seconds</h2>
+        <p>Pick a Vertex Pro panel, choose how many panels wide and high — get the exact wall size, resolution, and estimated price instantly.</p>
+      </div>
+      <div class="calc-card">
+        <div class="calc-form">
+          <div class="form-field">
+            <label for="calcModel">Panel model</label>
+            <select id="calcModel">
+              <option value="p19i">P1.9 Indoor — $730/panel</option>
+              <option value="p25i" selected>P2.5 Indoor — $580/panel</option>
+              <option value="p29i">P2.9 Indoor — $430/panel</option>
+              <option value="p39i">P3.9 Indoor / Rental — $380/panel</option>
+              <option value="p29o">P2.9 Outdoor — $580/panel</option>
+              <option value="p39o">P3.9 Outdoor — $480/panel</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="calcW">Panels wide</label>
+              <input type="number" id="calcW" min="1" max="40" value="7">
+            </div>
+            <div class="form-field">
+              <label for="calcH">Panels high</label>
+              <input type="number" id="calcH" min="1" max="20" value="4">
+            </div>
+          </div>
+          <p class="calc-note">Each Vertex Pro panel is 500 × 500 mm (1.64 × 1.64 ft).</p>
+          <a href="#quote" class="btn btn-primary btn-block" id="calcQuoteBtn" data-product="Custom LED Wall">Get an Exact Quote →</a>
+        </div>
+        <div class="calc-results">
+          <div class="calc-stat"><span class="calc-label">Wall size</span><strong id="calcSize">—</strong><span class="calc-sub" id="calcSizeM"></span></div>
+          <div class="calc-stat"><span class="calc-label">Total panels</span><strong id="calcCount">—</strong><span class="calc-sub" id="calcRatio"></span></div>
+          <div class="calc-stat"><span class="calc-label">Resolution</span><strong id="calcRes">—</strong><span class="calc-sub" id="calcPixels"></span></div>
+          <div class="calc-stat"><span class="calc-label">Min. viewing distance</span><strong id="calcView">—</strong><span class="calc-sub">pitch × 3.3 rule</span></div>
+          <div class="calc-stat calc-stat-wide"><span class="calc-label">Estimated price (panels only)</span><strong id="calcPrice" class="calc-price">—</strong><span class="calc-sub">Processor, rigging &amp; installation quoted separately — ask about turnkey pricing</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ TURNKEY PACKAGES ============ -->
   <section class="section section-alt" id="packages">
     <div class="container">
