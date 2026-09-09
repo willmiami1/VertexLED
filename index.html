@@ -383,14 +383,7 @@
         <h2>See Our LED Walls in Action</h2>
         <p>Follow us on Instagram <a class="ig-handle" href="https://www.instagram.com/vertexled/" target="_blank" rel="noopener">@vertexled</a> — our latest work, straight from the feed.</p>
       </div>
-      <behold-widget feed-id="2czLchW9lcKalZulQGvL"></behold-widget>
-      <script>
-        (() => {
-          if (window.__bhldScript) return; window.__bhldScript = true;
-          const d = document, s = d.createElement("script"); s.type = "module";
-          s.src = "https://w.behold.so/widget.js"; setTimeout(() => { d.head.append(s); }, 0);
-        })();
-      </script>
+      <div class="gallery-grid" id="galleryGrid"></div>
       <div class="gallery-cta">
         <a href="https://www.instagram.com/vertexled/" target="_blank" rel="noopener" class="btn btn-outline">Follow @vertexled on Instagram →</a>
       </div>
@@ -660,6 +653,15 @@
   </footer>
 
   <a href="#quote" class="floating-cta">💬 Free Quote</a>
+
+  <!-- Gallery lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox-content" id="lbContent"></div>
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox-caption" id="lbCaption"></div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

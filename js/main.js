@@ -115,6 +115,95 @@ if (calcModel) {
   runCalc();
 }
 
+// ============ INSTAGRAM GALLERY + LIGHTBOX ============
+// Custom renderer for the Behold.so feed: media opens in an
+// on-site lightbox (videos play inline) instead of Instagram.
+const GALLERY_FEED = 'https://feeds.behold.so/2czLchW9lcKalZulQGvL';
+const galleryGrid = document.getElementById('galleryGrid');
+
+if (galleryGrid) {
+  const lightbox = document.getElementById('lightbox');
+  const lbContent = document.getElementById('lbContent');
+  const lbCaption = document.getElementById('lbCaption');
+  let items = [];
+  let current = 0;
+
+  const mediaSrc = (p) =>
+    (p.sizes && p.sizes.large && p.sizes.large.mediaUrl) || p.mediaUrl;
+  const thumbSrc = (p) =>
+    p.thumbnailUrl || (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.mediaUrl;
+
+  const showItem = (i) => {
+    current = (i + items.length) % items.length;
+    const it = items[current];
+    lbContent.innerHTML = it.video
+      ? `<video src="${it.src}" controls autoplay playsinline></video>`
+      : `<img src="${it.src}" alt="">`;
+    lbCaption.innerHTML = `${it.caption ? it.caption + ' ' : ''}<a href="${it.permalink}" target="_blank" rel="noopener">View on Instagram ↗</a>`;
+  };
+  const openLightbox = (i) => {
+    showItem(i);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLightbox = () => {
+    lightbox.hidden = true;
+    lbContent.innerHTML = ''; // stops any playing video
+    document.body.style.overflow = '';
+  };
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', () => showItem(current - 1));
+  document.getElementById('lbNext').addEventListener('click', () => showItem(current + 1));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showItem(current - 1);
+    if (e.key === 'ArrowRight') showItem(current + 1);
+  });
+
+  fetch(GALLERY_FEED)
+    .then((r) => r.json())
+    .then((data) => {
+      const posts = data.posts || [];
+      if (!posts.length) return;
+      const esc = (s) => (s || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+      posts.forEach((post) => {
+        // Carousel albums expand into their individual photos/videos
+        const media = post.mediaType === 'CAROUSEL_ALBUM' && post.children && post.children.length
+          ? post.children
+          : [post];
+        const firstIndex = items.length;
+        media.forEach((m) => {
+          items.push({
+            video: m.mediaType === 'VIDEO',
+            src: mediaSrc(m),
+            caption: esc((post.prunedCaption || post.caption || '').slice(0, 140)),
+            permalink: post.permalink,
+          });
+        });
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'gallery-item';
+        btn.innerHTML =
+          `<img src="${thumbSrc(post)}" alt="${esc((post.prunedCaption || '').slice(0, 60)) || 'VertexLED Instagram post'}" loading="lazy">` +
+          (post.mediaType === 'VIDEO' ? '<span class="gallery-play">▶</span>' : '') +
+          `<span class="gallery-caption">${esc((post.prunedCaption || '').slice(0, 60))}</span>`;
+        btn.addEventListener('click', () => openLightbox(firstIndex));
+        galleryGrid.appendChild(btn);
+      });
+    })
+    .catch(() => {
+      galleryGrid.innerHTML =
+        '<p class="section-note">Gallery is loading slowly — <a href="https://www.instagram.com/vertexled/" target="_blank" rel="noopener">see our latest work on Instagram →</a></p>';
+    });
+}
+
 // Quote form submission (opens user's email client with details pre-filled)
 document.getElementById('quoteForm').addEventListener('submit', (e) => {
   e.preventDefault();
