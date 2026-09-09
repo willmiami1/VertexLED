@@ -41,6 +41,37 @@ document.querySelectorAll('[data-product]').forEach((btn) => {
   });
 });
 
+// ============ INSTAGRAM FEED (Image Gallery) ============
+// Paste the Behold.so JSON feed URL below to switch the gallery
+// from static images to the live @vertexled Instagram feed.
+const INSTAGRAM_FEED_URL = '';
+
+if (INSTAGRAM_FEED_URL) {
+  fetch(INSTAGRAM_FEED_URL)
+    .then((r) => r.json())
+    .then((data) => {
+      const posts = (data.posts || data).slice(0, 8);
+      if (!posts.length) return;
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+      posts.forEach((post) => {
+        const img =
+          post.thumbnailUrl ||
+          (post.sizes && post.sizes.medium && post.sizes.medium.mediaUrl) ||
+          post.mediaUrl;
+        const caption = (post.prunedCaption || post.caption || '').slice(0, 80);
+        const a = document.createElement('a');
+        a.className = 'gallery-item';
+        a.href = post.permalink;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.innerHTML = `<img src="${img}" alt="${caption.replace(/"/g, '&quot;')}" loading="lazy"><figcaption>${caption}</figcaption>`;
+        grid.appendChild(a);
+      });
+    })
+    .catch(() => {}); // keep static gallery on failure
+}
+
 // Quote form submission (opens user's email client with details pre-filled)
 document.getElementById('quoteForm').addEventListener('submit', (e) => {
   e.preventDefault();
