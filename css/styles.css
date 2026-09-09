@@ -358,6 +358,7 @@ a { color: var(--accent); text-decoration: none; }
 
 /* ============ APPLICATIONS ============ */
 .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.app-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 780px; margin: 0 auto; }
 .app-card {
   background: var(--surface);
   border: 1px solid var(--border);
