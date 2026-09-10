@@ -211,7 +211,6 @@ document.getElementById('quoteForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const f = e.target;
   const btn = f.querySelector('button[type="submit"]');
-  const note = f.querySelector('.form-note');
   btn.disabled = true;
   btn.textContent = 'Sending…';
   const data = new FormData(f);
@@ -225,9 +224,7 @@ document.getElementById('quoteForm').addEventListener('submit', (e) => {
       return r.json();
     })
     .then(() => {
-      f.reset();
-      btn.textContent = '✓ Request Sent!';
-      if (note) note.textContent = 'Thanks! We received your request and will reply the same business day.';
+      window.location.href = 'thank-you.html';
     })
     .catch(() => {
       // Fallback: open the visitor's email client with details pre-filled
