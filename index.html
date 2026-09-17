@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X610D3XMPV"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X610D3XMPV" fetchpriority="low"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -50,6 +50,8 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/backyard-pool-poster.jpg">
+  <link rel="preload" as="image" href="images/p3.9-outdoor-display.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=7">
 
@@ -157,8 +159,8 @@
         <a href="#packages">Turnkey Packages</a>
         <a href="#rental">Rental Packages</a>
         <a href="#gallery">Image Gallery</a>
-        <a href="#calculator">Screen Calculator</a>
         <a href="#why-us">Why Vertex LED</a>
+        <a href="xtras.html">Xtras</a>
         <a href="#quote" class="btn btn-primary btn-sm">Get a Free Quote</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -189,12 +191,12 @@
       </div>
       <div class="hero-visual">
         <div class="led-screen-mock">
-          <video autoplay muted loop playsinline preload="metadata">
+          <video autoplay muted loop playsinline preload="none" poster="images/backyard-pool-poster.jpg">
             <source src="videos/hero.mp4" type="video/mp4">
           </video>
           <div class="led-screen-caption">VertexLED — LED video walls in action</div>
         </div>
-        <img src="images/p3.9-outdoor-display.jpg" alt="P3.9mm Outdoor LED display — 7 × 4 panel video wall" class="hero-banner" loading="lazy">
+        <img src="images/p3.9-outdoor-display.jpg" alt="P3.9mm Outdoor LED display — 7 × 4 panel video wall" class="hero-banner" loading="eager" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -220,7 +222,7 @@
       </div>
       <div class="product-grid product-grid-4">
         <article class="product-card">
-          <div class="product-visual product-photo"><img src="images/p1.9-indoor.jpg" alt="Vertex Pro P1.9mm indoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p1.9-indoor.jpg" alt="Vertex Pro P1.9mm indoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P1.9 Ultra-Fine Indoor</h3>
             <ul>
@@ -238,7 +240,7 @@
         </article>
         <article class="product-card featured">
           <div class="best-seller">★ Best Seller</div>
-          <div class="product-visual product-photo"><img src="images/p2.5-indoor.jpg" alt="Vertex Pro P2.5mm indoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p2.5-indoor.jpg" alt="Vertex Pro P2.5mm indoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P2.5 Indoor Video Wall</h3>
             <ul>
@@ -255,7 +257,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-visual product-photo"><img src="images/p2.9-indoor.jpg" alt="Vertex Pro P2.9mm indoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p2.9-indoor.jpg" alt="Vertex Pro P2.9mm indoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P2.9 Indoor Video Wall</h3>
             <ul>
@@ -272,7 +274,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-visual product-photo"><img src="images/p3.9-indoor.jpg" alt="Vertex Pro P3.9mm indoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p3.9-indoor.jpg" alt="Vertex Pro P3.9mm indoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P3.9 Indoor</h3>
             <ul>
@@ -303,7 +305,7 @@
       </div>
       <div class="product-grid outdoor-grid">
         <article class="product-card">
-          <div class="product-visual product-photo"><img src="images/p2.9-outdoor.jpg" alt="Vertex Pro P2.9mm outdoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p2.9-outdoor.jpg" alt="Vertex Pro P2.9mm outdoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P2.9 Outdoor Rental</h3>
             <ul>
@@ -321,7 +323,7 @@
         </article>
         <article class="product-card featured">
           <div class="best-seller">★ Best Seller</div>
-          <div class="product-visual product-photo"><img src="images/p3.9-outdoor.jpg" alt="Vertex Pro P3.9mm outdoor LED panel" loading="lazy"></div>
+          <div class="product-visual product-photo"><img src="images/p3.9-outdoor.jpg" alt="Vertex Pro P3.9mm outdoor LED panel" width="1200" height="800" loading="lazy"></div>
           <div class="product-body">
             <h3>P3.9 Outdoor Video Wall</h3>
             <ul>
@@ -377,30 +379,6 @@
     </div>
   </section>
 
-  <!-- ============ PIXEL PITCH GUIDE ============ -->
-  <section class="section" id="pitch-guide">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Buyer's Guide</span>
-        <h2>Which Pixel Pitch Do You Need?</h2>
-        <p>Rule of thumb: minimum viewing distance (in feet) ≈ pixel pitch (in mm) × 3.3</p>
-      </div>
-      <div class="table-wrap">
-        <table class="pitch-table">
-          <thead>
-            <tr><th>Pixel Pitch</th><th>Min. Viewing Distance</th><th>Indoor</th><th>Outdoor</th><th>Typical Use</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>P1.2 – P1.9</td><td>4–6 ft</td><td>✔</td><td>—</td><td>Studios, boardrooms, high-end retail</td></tr>
-            <tr><td>P2.5</td><td>8 ft</td><td>✔</td><td>—</td><td>Churches, auditoriums, lobbies</td></tr>
-            <tr><td>P2.9 – P3.9</td><td>10–13 ft</td><td>✔</td><td>✔</td><td>Stages, concerts, trade shows</td></tr>
-            <tr><td>P4.8 – P5</td><td>16 ft +</td><td>✔</td><td>✔</td><td>Billboards, jumbotrons, signage</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ TURNKEY PACKAGES ============ -->
   <section class="section section-alt" id="packages">
     <div class="container">
@@ -411,7 +389,7 @@
       </div>
       <div class="package-grid product-grid-4">
         <article class="package-card">
-          <img src="images/package-7x4.jpg" alt="P2.9mm indoor LED wall package — 7 panels across, 4 panels high" class="package-img" loading="lazy">
+          <img src="images/package-7x4.jpg" alt="P2.9mm indoor LED wall package — 7 panels across, 4 panels high" class="package-img" width="1200" height="800" loading="lazy">
           <h3>7 × 4 Panel Wall</h3>
           <div class="package-size">11.2' × 6.4' (3.5 × 2.0 m) — P2.9 Indoor</div>
           <div class="package-price">From <strong>$18,990</strong></div>
@@ -426,7 +404,7 @@
         </article>
         <article class="package-card featured">
           <div class="best-seller">★ Most Popular</div>
-          <img src="images/package-9x5.jpg" alt="P2.9mm indoor LED wall package — 9 panels across, 5 panels high" class="package-img" loading="lazy">
+          <img src="images/package-9x5.jpg" alt="P2.9mm indoor LED wall package — 9 panels across, 5 panels high" class="package-img" width="1200" height="800" loading="lazy">
           <h3>9 × 5 Panel Wall</h3>
           <div class="package-size">14.8' × 8.2' (4.5 × 2.5 m) — P2.9 Indoor</div>
           <div class="package-price">From <strong>$29,350</strong></div>
@@ -440,7 +418,7 @@
           <a href="#quote" class="btn btn-primary btn-block" data-product="P2.9 Indoor 9x5 Package">Request This Package</a>
         </article>
         <article class="package-card">
-          <img src="images/package-10x6.jpg" alt="P2.9mm indoor LED wall package — 10 panels across, 6 panels high" class="package-img" loading="lazy">
+          <img src="images/package-10x6.jpg" alt="P2.9mm indoor LED wall package — 10 panels across, 6 panels high" class="package-img" width="1200" height="800" loading="lazy">
           <h3>10 × 6 Panel Wall</h3>
           <div class="package-size">16.4' × 9.8' (5.0 × 3.0 m) — P2.9 Indoor</div>
           <div class="package-price">From <strong>$38,990</strong></div>
@@ -454,7 +432,7 @@
           <a href="#quote" class="btn btn-outline btn-block" data-product="P2.9 Indoor 10x6 Package">Request This Package</a>
         </article>
         <article class="package-card">
-          <img src="images/package-7x4-outdoor.jpg" alt="P3.9mm outdoor LED wall package — 7 panels across, 4 panels high" class="package-img" loading="lazy">
+          <img src="images/package-7x4-outdoor.jpg" alt="P3.9mm outdoor LED wall package — 7 panels across, 4 panels high" class="package-img" width="1200" height="800" loading="lazy">
           <h3>7 × 4 Panel Wall — Outdoor</h3>
           <div class="package-size">11.2' × 6.4' (3.5 × 2.0 m) — P3.9 Outdoor</div>
           <div class="package-price">From <strong>$15,990</strong></div>
@@ -483,7 +461,7 @@
       </div>
       <div class="package-grid">
         <article class="package-card">
-          <img src="images/rental-basic.jpg" alt="Basic rental package — 11.2 × 6.4 ft P2.9mm indoor LED screen" class="package-img" loading="lazy">
+          <img src="images/rental-basic.jpg" alt="Basic rental package — 11.2 × 6.4 ft P2.9mm indoor LED screen" class="package-img" width="1200" height="800" loading="lazy">
           <h3>Basic</h3>
           <div class="package-size">11.2' × 6.4' — P2.9 Indoor</div>
           <div class="package-price">Starting at <strong>$1,500</strong></div>
@@ -497,7 +475,7 @@
         </article>
         <article class="package-card featured">
           <div class="best-seller">★ Most Popular</div>
-          <img src="images/rental-standard.jpg" alt="Standard rental package — 14.7 × 8.2 ft P2.9mm indoor LED screen" class="package-img" loading="lazy">
+          <img src="images/rental-standard.jpg" alt="Standard rental package — 14.7 × 8.2 ft P2.9mm indoor LED screen" class="package-img" width="1200" height="800" loading="lazy">
           <h3>Standard</h3>
           <div class="package-size">14.7' × 8.2' — P2.9 Indoor</div>
           <div class="package-price">Starting at <strong>$2,500</strong></div>
@@ -510,7 +488,7 @@
           <a href="#quote" class="btn btn-primary btn-block" data-product="Rental — Standard 14.7x8.2 LED Screen">Book This Package</a>
         </article>
         <article class="package-card">
-          <img src="images/rental-premium.jpg" alt="Premium rental package — 16 × 9.6 ft P2.9mm indoor LED screen" class="package-img" loading="lazy">
+          <img src="images/rental-premium.jpg" alt="Premium rental package — 16 × 9.6 ft P2.9mm indoor LED screen" class="package-img" width="1200" height="800" loading="lazy">
           <h3>Premium</h3>
           <div class="package-size">16' × 9.6' — P2.9 Indoor</div>
           <div class="package-price">Starting at <strong>$3,500</strong></div>
@@ -645,7 +623,7 @@
         </div>
       </div>
       <div class="customers">
-        <img src="images/customers.jpg?v=2" alt="A small sample of our customers along the 20 years — Church By The Glades, First Baptist of Fort Lauderdale, BrandStar Studios, Central Maine Community College, NMCC, LifeSong Church, CornerStone Church, WS Productions, Zazha Studios, United Sports System, Tempuz Production, Springdale Baptist Church, EDC Events, World Tennis Tour, M Sports Dealership, Cafe Tropical, Gooze and Gooli Media" class="customers-img" loading="lazy">
+        <img src="images/customers.jpg?v=2" alt="A small sample of our customers along the 20 years — Church By The Glades, First Baptist of Fort Lauderdale, BrandStar Studios, Central Maine Community College, NMCC, LifeSong Church, CornerStone Church, WS Productions, Zazha Studios, United Sports System, Tempuz Production, Springdale Baptist Church, EDC Events, World Tennis Tour, M Sports Dealership, Cafe Tropical, Gooze and Gooli Media" class="customers-img" width="1600" height="900" loading="lazy">
       </div>
     </div>
   </section>
