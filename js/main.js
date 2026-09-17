@@ -122,6 +122,9 @@ const GALLERY_FEED = 'https://feeds.behold.so/2czLchW9lcKalZulQGvL';
 const galleryGrid = document.getElementById('galleryGrid');
 
 if (galleryGrid) {
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    galleryGrid.innerHTML = '<p class="section-note">See our latest work on Instagram or open Xtras for more planning tools.</p>';
+  } else {
   const lightbox = document.getElementById('lightbox');
   const lbContent = document.getElementById('lbContent');
   const lbCaption = document.getElementById('lbCaption');
@@ -204,6 +207,7 @@ if (galleryGrid) {
       galleryGrid.innerHTML =
         '<p class="section-note">Gallery is loading slowly — <a href="https://www.instagram.com/vertexled/" target="_blank" rel="noopener">see our latest work on Instagram →</a></p>';
     });
+  }
 }
 
 // Quote form submission (sends via FormSubmit, shows on-page confirmation)
