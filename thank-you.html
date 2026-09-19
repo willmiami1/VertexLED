@@ -21,9 +21,20 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1736137154309092');
+  // Advanced Matching: hashed by the pixel, forwarded server-side via Conversions API Gateway
+  var vxLead = {};
+  try { vxLead = JSON.parse(sessionStorage.getItem('vx_lead') || '{}'); sessionStorage.removeItem('vx_lead'); } catch (e) {}
+  var vxMatch = {};
+  if (vxLead.em) vxMatch.em = vxLead.em;
+  if (vxLead.ph) vxMatch.ph = vxLead.ph;
+  if (vxLead.fn) vxMatch.fn = vxLead.fn;
+  if (vxLead.ln) vxMatch.ln = vxLead.ln;
+  fbq('init', '1736137154309092', vxMatch);
   fbq('track', 'PageView');
-  fbq('track', 'Lead');
+  // eventID lets Meta deduplicate the browser event against the CAPI Gateway copy
+  fbq('track', 'Lead',
+    { content_name: vxLead.product || 'LED quote request', content_category: 'Quote Request' },
+    { eventID: vxLead.eid || ('lead_' + Date.now()) });
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1736137154309092&ev=PageView&noscript=1"

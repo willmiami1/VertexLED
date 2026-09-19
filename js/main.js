@@ -228,6 +228,18 @@ document.getElementById('quoteForm').addEventListener('submit', (e) => {
       return r.json();
     })
     .then(() => {
+      // Pass lead details to thank-you page for Meta Advanced Matching (CAPI match quality)
+      try {
+        const name = (f.name.value || '').trim().split(/\s+/);
+        sessionStorage.setItem('vx_lead', JSON.stringify({
+          em: (f.email.value || '').trim().toLowerCase(),
+          ph: (f.phone.value || '').replace(/\D/g, ''),
+          fn: (name[0] || '').toLowerCase(),
+          ln: (name.slice(1).join(' ') || '').toLowerCase(),
+          eid: 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10),
+          product: f.interest.value || '',
+        }));
+      } catch (_) {}
       window.location.href = 'thank-you.html';
     })
     .catch(() => {
